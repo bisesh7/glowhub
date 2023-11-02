@@ -1,12 +1,9 @@
-Creating a README file for your application is essential for providing information to users and developers. Below is a sample structure for your README file. You can customize it to fit your app's specific details:
-
----
-
 # GlowHub - Beauty Booking App
 
-![GlowHub Logo](link-to-your-logo-image.png)
+![GlowHub Logo](https://collegedouglas.sharepoint.com/:i:/r/sites/Glowwhub/Shared%20Documents/General/Glowhub%20logo.png?csf=1&web=1&e=546ucp)
 
 ## Table of Contents
+
 - [Introduction](#introduction)
 - [Features](#features)
 - [Getting Started](#getting-started)
@@ -35,15 +32,16 @@ Welcome to GlowHub, your ultimate beauty booking companion! GlowHub is a mobile 
 ### Prerequisites
 
 To run GlowHub, you'll need the following:
+
 - Android Studio (latest version)
 - Android SDK with minimum API level 21
-- [Any other prerequisites]
 
 ### Installation
 
 1. Clone this repository.
+
    ```
-   git clone https://github.com/yourusername/GlowHub.git
+   git clone https://github.com/bisesh7/glowhub
    ```
 
 2. Open the project in Android Studio.
@@ -59,19 +57,19 @@ To run GlowHub, you'll need the following:
 - Confirm your appointment and make a secure payment.
 - Receive real-time updates and reminders.
 
-## Contributing
-
-We welcome contributions from developers and enthusiasts who share our vision for a more seamless beauty booking experience. To contribute, please follow our [Contribution Guidelines](CONTRIBUTING.md).
-
 ## Authors
 
-- [Your Name]
-- [Other Team Members]
+- Bisesh Shakya
+- Irene Naing
+- Saroj Karki
 
 ## License
 
 This project is licensed under the MIT License. See the [LICENSE.md](LICENSE.md) file for details.
 
----
+## Variable Naming Convention
 
-Please replace `[Your Name]`, `[Other Team Members]`, and other placeholders with the actual information for your project. Customize the content further to include any additional details, instructions, or links relevant to your application.
+- **Button:** loginBtn
+- **TextView:** nameLabel
+- **PlainText:** nameTxt (Every thing in text)
+- **Constants:** (Final keyword) needs to be in allCaps. e.g. private final NUMBER_OF_MONTHS = 12;
