@@ -1,4 +1,4 @@
-package com.example.glowhub.ui.gallery;
+package com.example.glowhub.ui.appointments;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -10,22 +10,24 @@ import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProvider;
 
+import com.example.glowhub.databinding.FragmentAppointmentsBinding;
 import com.example.glowhub.databinding.FragmentGalleryBinding;
+import com.example.glowhub.ui.appointments.AppointmentsViewModel;
 
-public class GalleryFragment extends Fragment {
+public class AppointmentsFragment extends Fragment {
 
-    private FragmentGalleryBinding binding;
+    private FragmentAppointmentsBinding binding;
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
-        com.example.glowhub.ui.gallery.GalleryViewModel rewardsViewModel =
-                new ViewModelProvider(this).get(com.example.glowhub.ui.gallery.GalleryViewModel.class);
+        AppointmentsViewModel appointmentsViewModel =
+                new ViewModelProvider(this).get(AppointmentsViewModel.class);
 
-        binding = FragmentGalleryBinding.inflate(inflater, container, false);
+        binding = FragmentAppointmentsBinding.inflate(inflater, container, false);
         View root = binding.getRoot();
 
-        final TextView textView = binding.textGallery;
-        rewardsViewModel.getText().observe(getViewLifecycleOwner(), textView::setText);
+        final TextView textView = binding.textAppointments;
+        appointmentsViewModel.getText().observe(getViewLifecycleOwner(), textView::setText);
         return root;
     }
 

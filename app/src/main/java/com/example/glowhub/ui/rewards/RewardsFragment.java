@@ -1,4 +1,4 @@
-package com.example.glowhub.ui.gallery;
+package com.example.glowhub.ui.rewards;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -10,21 +10,22 @@ import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProvider;
 
-import com.example.glowhub.databinding.FragmentGalleryBinding;
+import com.example.glowhub.databinding.FragmentRewardsBinding;
+import com.example.glowhub.ui.rewards.RewardsViewModel;
 
-public class GalleryFragment extends Fragment {
+public class RewardsFragment extends Fragment {
 
-    private FragmentGalleryBinding binding;
+    private FragmentRewardsBinding binding;
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
-        com.example.glowhub.ui.gallery.GalleryViewModel rewardsViewModel =
-                new ViewModelProvider(this).get(com.example.glowhub.ui.gallery.GalleryViewModel.class);
+        RewardsViewModel rewardsViewModel =
+                new ViewModelProvider(this).get(RewardsViewModel.class);
 
-        binding = FragmentGalleryBinding.inflate(inflater, container, false);
+        binding = FragmentRewardsBinding.inflate(inflater, container, false);
         View root = binding.getRoot();
 
-        final TextView textView = binding.textGallery;
+        final TextView textView = binding.textRewards;
         rewardsViewModel.getText().observe(getViewLifecycleOwner(), textView::setText);
         return root;
     }

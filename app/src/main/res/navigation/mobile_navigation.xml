@@ -12,14 +12,27 @@
         tools:layout="@layout/fragment_home" />
 
     <fragment
-        android:id="@+id/nav_gallery"
-        android:name="com.example.glowhub.ui.gallery.GalleryFragment"
-        android:label="@string/menu_gallery"
-        tools:layout="@layout/fragment_gallery" />
+        android:id="@+id/nav_services"
+        android:name="com.example.glowhub.ui.services.ServicesFragment"
+        android:label="@string/menu_services"
+        tools:layout="@layout/fragment_services" />
 
     <fragment
-        android:id="@+id/nav_slideshow"
-        android:name="com.example.glowhub.ui.slideshow.SlideshowFragment"
-        android:label="@string/menu_slideshow"
-        tools:layout="@layout/fragment_slideshow" />
+        android:id="@+id/nav_appointments"
+        android:name="com.example.glowhub.ui.appointments.AppointmentsFragment"
+        android:label="@string/menu_appointments"
+        tools:layout="@layout/fragment_appointments" />
+
+    <fragment
+        android:id="@+id/nav_rewards"
+        android:name="com.example.glowhub.ui.rewards.RewardsFragment"
+        android:label="@string/menu_rewards"
+        tools:layout="@layout/fragment_rewards" />
+
+    <fragment
+        android:id="@+id/nav_logout"
+        android:name="com.example.glowhub.ui.logout.LogoutFragment"
+        android:label="@string/menu_logout"
+        tools:layout="@layout/fragment_logout" />
+
 </navigation>
