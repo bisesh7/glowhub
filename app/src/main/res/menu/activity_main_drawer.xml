@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     tools:showIn="navigation_view">
 
@@ -9,12 +10,24 @@
             android:icon="@drawable/ic_menu_camera"
             android:title="@string/menu_home" />
         <item
-            android:id="@+id/nav_gallery"
+            android:id="@+id/nav_services"
             android:icon="@drawable/ic_menu_gallery"
-            android:title="@string/menu_gallery" />
+            android:title="@string/menu_services" />
         <item
-            android:id="@+id/nav_slideshow"
+            android:id="@+id/nav_login"
             android:icon="@drawable/ic_menu_slideshow"
-            android:title="@string/menu_slideshow" />
+            android:title="@string/menu_login" />
+        <item
+            android:id="@+id/nav_sign_up"
+            android:icon="@android:drawable/ic_menu_myplaces"
+            android:title="@string/menu_sign_up" />
+        <item
+            android:id="@+id/nav_appointments"
+            android:icon="@android:drawable/ic_menu_myplaces"
+            android:title="@string/menu_appointments" />
+        <item
+            android:id="@+id/nav_rewards_and_coupon"
+            android:icon="@android:drawable/ic_menu_myplaces"
+            android:title="@string/menu_reward_coupons" />
     </group>
 </menu>
