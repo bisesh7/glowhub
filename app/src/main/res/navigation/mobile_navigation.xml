@@ -31,9 +31,9 @@
 
     <fragment
         android:id="@+id/nav_appointments"
-        android:name="com.example.glowhub.ui.gallery.GalleryFragment"
-        android:label="@string/menu_sign_up"
-        tools:layout="@layout/fragment_gallery" />
+        android:name="com.example.glowhub.ui.appointment.AppointmentFragment"
+        android:label="@string/menu_appointments"
+        tools:layout="@layout/fragment_appointment" />
 
     <fragment
         android:id="@+id/nav_rewards_and_coupon"
