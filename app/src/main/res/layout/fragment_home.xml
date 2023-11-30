@@ -37,14 +37,14 @@
 
                 <!-- Add navigation items as needed -->
                 <TextView
-                    android:id="@+id/services"
+                    android:id="@+id/services_btn"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Services"
                     android:padding="8dp" />
 
                 <TextView
-                    android:id="@+id/stylists"
+                    android:id="@+id/stylists_btn"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Stylists"

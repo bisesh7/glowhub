@@ -40,4 +40,10 @@
         android:name="com.example.glowhub.ui.gallery.GalleryFragment"
         android:label="@string/menu_sign_up"
         tools:layout="@layout/fragment_gallery" />
+
+    <fragment
+        android:id="@+id/stylists"
+        android:name="com.example.glowhub.ui.stylist_management.Stylist_Management"
+        android:label="@string/menu_stylists"
+        tools:layout="@layout/fragment_stylist__management" />
 </navigation>
