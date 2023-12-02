@@ -30,6 +30,12 @@
         tools:layout="@layout/fragment_sign_up" />
 
     <fragment
+        android:id="@+id/nav_forget_password"
+        android:name="com.example.glowhub.ui.forget_password.ForgetPasswordFragment"
+        android:label="@string/menu_forget_password"
+        tools:layout="@layout/fragment_forget_password" />
+
+    <fragment
         android:id="@+id/nav_appointments"
         android:name="com.example.glowhub.ui.appointment.AppointmentFragment"
         android:label="@string/menu_appointments"

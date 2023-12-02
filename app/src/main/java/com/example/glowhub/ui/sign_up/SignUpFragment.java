@@ -7,6 +7,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
@@ -19,6 +20,7 @@ import com.example.glowhub.R;
 public class SignUpFragment extends Fragment {
 
     private EditText fullNameView, emailView, passwordView;
+    private TextView loginTextView;
     private Button registerButtonView;
     private UserDatabaseHelper dbHelper;
 
@@ -31,6 +33,7 @@ public class SignUpFragment extends Fragment {
         emailView = view.findViewById(R.id.emailEditText);
         passwordView = view.findViewById(R.id.passwordEditText);
         registerButtonView = view.findViewById(R.id.registerButton);
+        loginTextView = view.findViewById(R.id.loginTextView);
 
         dbHelper = new UserDatabaseHelper(requireContext());
 
@@ -39,6 +42,13 @@ public class SignUpFragment extends Fragment {
             public void onClick(View view) {
                 // Handle user registration
                 registerUser();
+            }
+        });
+
+        loginTextView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view){
+                Navigation.findNavController(requireView()).navigate(R.id.nav_login);
             }
         });
 

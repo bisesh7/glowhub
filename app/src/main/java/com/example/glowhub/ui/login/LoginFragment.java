@@ -21,8 +21,7 @@ public class LoginFragment extends Fragment {
 
     private EditText emailTextView, passwordTextView;
     private Button loginButton;
-    private TextView signupTextView;
-
+    private TextView signupTextView, forgotPasswordTextView;
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
@@ -32,7 +31,7 @@ public class LoginFragment extends Fragment {
         passwordTextView = view.findViewById(R.id.loginPasswordTextView);
         loginButton = view.findViewById(R.id.loginBtn);
         signupTextView = view.findViewById(R.id.signUpTextView);
-
+        forgotPasswordTextView = view.findViewById(R.id.forgotPasswordTextView);
         loginButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -46,6 +45,14 @@ public class LoginFragment extends Fragment {
             public void onClick(View view) {
                 // Navigate to SignUpFragment
                 Navigation.findNavController(requireView()).navigate(R.id.nav_sign_up);
+            }
+        });
+
+        forgotPasswordTextView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                // Navigate to the ForgetPasswordFragment when the button is clicked
+                Navigation.findNavController(view).navigate(R.id.nav_forget_password);
             }
         });
 
