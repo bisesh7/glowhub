@@ -12,6 +12,7 @@ import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
+import androidx.navigation.Navigation;
 
 import com.example.glowhub.R;
 
@@ -68,14 +69,13 @@ public class SignUpFragment extends Fragment {
 
         if (userId != -1) {
             // Registration successful
-//            Toast.makeText(requireContext(), "Registration successful", Toast.LENGTH_SHORT).show();
-//
-//            // You can navigate to the login screen or any other screen
-//            requireActivity().startActivity(new Intent(requireContext(), login.class));
-//            requireActivity().finish(); // Close the registration activity
+            Toast.makeText(requireContext(), "Registration successful", Toast.LENGTH_SHORT).show();
+
+            // You can navigate to the login screen or any other screen
+            Navigation.findNavController(requireView()).navigate(R.id.nav_login);
         } else {
             // Registration failed
-            Toast.makeText(requireContext(), "Registration failed. Please try again.", Toast.LENGTH_SHORT).show();
+            Toast.makeText(requireContext(), "User has already registered. Please login.", Toast.LENGTH_SHORT).show();
         }
     }
 }

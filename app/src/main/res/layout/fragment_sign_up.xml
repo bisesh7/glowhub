@@ -71,11 +71,11 @@
         android:id="@+id/loginTextView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
         android:text="Already have an account? Login"
-        android:textColor="@android:color/white"
-        app:layout_constraintTop_toBottomOf="@id/registerButton"
-        app:layout_constraintStart_toStartOf="@id/registerButton"
+        android:textColor="@color/black"
         app:layout_constraintEnd_toEndOf="@id/registerButton"
-        android:layout_marginTop="16dp"/>
+        app:layout_constraintStart_toStartOf="@id/registerButton"
+        app:layout_constraintTop_toBottomOf="@id/registerButton" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
