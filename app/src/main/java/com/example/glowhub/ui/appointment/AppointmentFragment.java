@@ -102,7 +102,7 @@ public class AppointmentFragment extends Fragment {
 
         // ... Other code for setting up appointment list, adapter, etc.
     }
-j
+
 
     private void addDummyAppointments() {
         // Simulate adding appointments for demonstration
