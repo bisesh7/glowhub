@@ -1,0 +1,47 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <!-- Appointment Details Section -->
+    <LinearLayout
+        android:id="@+id/appointmentDetailsLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="16dp">
+
+        <EditText
+            android:id="@+id/etAppointmentTitle"
+            android:layout_width="377dp"
+            android:layout_height="56dp"
+            android:hint="Appointment Title"
+            android:inputType="text" />
+
+        <EditText
+            android:id="@+id/etSelectedDate"
+            android:layout_width="377dp"
+            android:layout_height="55dp"
+            android:focusable="false"
+            android:hint="Selected Date"
+            android:inputType="none" />
+
+        <!-- Other fields for appointment details -->
+
+        <Button
+            android:id="@+id/btnSelectDate"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Select Date" />
+    </LinearLayout>
+
+    <!-- Submit Button -->
+    <Button
+        android:id="@+id/btnBookAppointment"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Book Appointment"
+        android:layout_below="@id/appointmentDetailsLayout"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="24dp" />
+
+</RelativeLayout>

@@ -46,4 +46,10 @@
         android:name="com.example.glowhub.ui.stylist_management.Stylist_Management"
         android:label="@string/menu_stylists"
         tools:layout="@layout/fragment_stylist__management" />
+
+    <fragment
+        android:id="@+id/book_appointment"
+        android:name="com.example.glowhub.ui.appointment.AppointmentBooking"
+        android:label="@string/menu_appointment_booking"
+        tools:layout="@layout/fragment_appointment_booking" />
 </navigation>
