@@ -19,4 +19,5 @@
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="menu_appointment_booking">Appointment booking</string>
     <string name="menu_forget_password">Forget Password</string>
+    <string name="menu_user_management">User Management</string>
 </resources>

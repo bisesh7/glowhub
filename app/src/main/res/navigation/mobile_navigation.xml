@@ -58,4 +58,10 @@
         android:name="com.example.glowhub.ui.appointment.AppointmentBooking"
         android:label="@string/menu_appointment_booking"
         tools:layout="@layout/fragment_appointment_booking" />
+
+    <fragment
+        android:id="@+id/user_management"
+        android:name="com.example.glowhub.ui.user_management.UserManagementFragment"
+        android:label="@string/menu_user_management"
+        tools:layout="@layout/fragment_user_management" />
 </navigation>
