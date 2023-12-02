@@ -1,4 +1,4 @@
-package com.example.glowhub.ui.gallery;
+package com.example.glowhub.ui.logout;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -10,18 +10,18 @@ import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProvider;
 
-import com.example.glowhub.databinding.FragmentGalleryBinding;
+import com.example.glowhub.databinding.FragmentLogoutBinding;
 
-public class GalleryFragment extends Fragment {
+public class LogoutFragment extends Fragment {
 
-    private FragmentGalleryBinding binding;
+    private FragmentLogoutBinding binding;
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
-        com.example.glowhub.ui.gallery.GalleryViewModel rewardsViewModel =
-                new ViewModelProvider(this).get(com.example.glowhub.ui.gallery.GalleryViewModel.class);
+        LogoutViewModel rewardsViewModel =
+                new ViewModelProvider(this).get(LogoutViewModel.class);
 
-        binding = FragmentGalleryBinding.inflate(inflater, container, false);
+        binding = FragmentLogoutBinding.inflate(inflater, container, false);
         View root = binding.getRoot();
 
         final TextView textView = binding.textGallery;

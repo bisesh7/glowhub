@@ -13,15 +13,17 @@
 
     <fragment
         android:id="@+id/nav_services"
-        android:name="com.example.glowhub.ui.gallery.GalleryFragment"
+        android:name="com.example.glowhub.ui.services.ServicesListFragment"
         android:label="@string/menu_services"
-        tools:layout="@layout/fragment_gallery" />
+        tools:layout="@layout/fragment_services_list" />
+
 
     <fragment
         android:id="@+id/nav_login"
         android:name="com.example.glowhub.ui.login.LoginFragment"
         android:label="@string/menu_login"
         tools:layout="@layout/fragment_login" />
+        
 
     <fragment
         android:id="@+id/nav_sign_up"
@@ -64,4 +66,24 @@
         android:name="com.example.glowhub.ui.user_management.UserManagementFragment"
         android:label="@string/menu_user_management"
         tools:layout="@layout/fragment_user_management" />
+
+
+    <fragment
+        android:id="@+id/nav_appointments"
+        android:name="com.example.glowhub.ui.appointments.AppointmentsFragment"
+        android:label="@string/menu_appointments"
+        tools:layout="@layout/fragment_appointments" />
+
+    <fragment
+        android:id="@+id/nav_rewards"
+        android:name="com.example.glowhub.ui.rewards.RewardsListFragment"
+        android:label="@string/menu_rewards"
+        tools:layout="@layout/fragment_rewards" />
+
+    <fragment
+        android:id="@+id/nav_logout"
+        android:name="com.example.glowhub.ui.logout.LogoutFragment"
+        android:label="@string/menu_logout"
+        tools:layout="@layout/fragment_logout" />
+
 </navigation>

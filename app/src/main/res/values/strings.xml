@@ -20,4 +20,13 @@
     <string name="menu_appointment_booking">Appointment booking</string>
     <string name="menu_forget_password">Forget Password</string>
     <string name="menu_user_management">User Management</string>
+    <string name="menu_appointments">Appointments</string>
+    <string name="menu_rewards">Rewards and Coupons</string>
+    <string name="menu_logout">Logout</string>
+    <string name="add_service">Add Service</string>
+    <string name="add_reward">Add Reward</string>
+    <string name="edit_service">Edit</string>
+    <string name="delete_service">Delete</string>
+    <string name="edit_reward">Edit Reward</string>
+    <string name="delete_reward">Delete Reward</string>
 </resources>
