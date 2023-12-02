@@ -1,30 +1,37 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     tools:showIn="navigation_view">
 
     <group android:checkableBehavior="single">
         <item
             android:id="@+id/nav_home"
-            android:icon="@drawable/ic_menu_home"
+            android:icon="@drawable/ic_menu_camera"
             android:title="@string/menu_home" />
         <item
             android:id="@+id/nav_services"
-            android:icon="@drawable/ic_menu_services"
+            android:icon="@drawable/ic_menu_gallery"
             android:title="@string/menu_services" />
         <item
+            android:id="@+id/nav_login"
+            android:icon="@drawable/ic_menu_slideshow"
+            android:title="@string/menu_login" />
+        <item
+            android:id="@+id/nav_sign_up"
+            android:icon="@android:drawable/ic_menu_myplaces"
+            android:title="@string/menu_sign_up" />
+        <item
             android:id="@+id/nav_appointments"
-            android:icon="@drawable/ic_menu_appointments"
+            android:icon="@android:drawable/ic_menu_myplaces"
             android:title="@string/menu_appointments" />
-
         <item
-            android:id="@+id/nav_rewards"
-            android:icon="@drawable/ic_menu_rewards"
-            android:title="@string/menu_rewards" />
-
+            android:id="@+id/nav_rewards_and_coupon"
+            android:icon="@android:drawable/ic_menu_myplaces"
+            android:title="@string/menu_reward_coupons" />
         <item
-            android:id="@+id/nav_logout"
-            android:icon="@drawable/ic_menu_logout"
-            android:title="@string/menu_logout" />
+            android:id="@+id/user_management"
+            android:icon="@android:drawable/ic_menu_myplaces"
+            android:title="@string/menu_user_management" />
     </group>
 </menu>
