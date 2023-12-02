@@ -72,19 +72,21 @@ public class AppointmentFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_appointment, container, false);
-
         recyclerView = view.findViewById(R.id.appointmentRecyclerView);
-        appointmentList = new ArrayList<>(); // Initialize your appointment data
 
-        // Initialize RecyclerView and adapter
-        appointmentAdapter = new AppointmentAdapter(appointmentList);
-        recyclerView.setLayoutManager(new LinearLayoutManager(requireContext()));
-        recyclerView.setAdapter(appointmentAdapter);
+        recyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
 
-        // Simulate adding appointments (replace with your actual data retrieval)
-        addDummyAppointments();
+        loadAppointments(); // Load appointments from the database
 
         return view;
+    }
+
+    private void loadAppointments() {
+        AppointmentDatabaseHelper dbHelper = new AppointmentDatabaseHelper(getActivity());
+        List<Appointment> appointments = dbHelper.getAllAppointments();
+
+        appointmentAdapter = new AppointmentAdapter(appointments);
+        recyclerView.setAdapter(appointmentAdapter);
     }
 
     @Override
@@ -95,25 +97,9 @@ public class AppointmentFragment extends Fragment {
         btnNewAppointment.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                // Navigate to the NewAppointmentFragment when the button is clicked
                 Navigation.findNavController(v).navigate(R.id.book_appointment);
             }
         });
-
-        // ... Other code for setting up appointment list, adapter, etc.
     }
 
-
-    private void addDummyAppointments() {
-        // Simulate adding appointments for demonstration
-        for (int i = 1; i <= 10; i++) {
-            Appointment appointment = new Appointment(
-                    "Appointment " + i,
-                    "Date and Time " + i
-                    // Add more appointment details as needed
-            );
-            appointmentList.add(appointment);
-        }
-        appointmentAdapter.notifyDataSetChanged();
-    }
 }

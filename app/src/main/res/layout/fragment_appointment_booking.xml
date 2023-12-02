@@ -27,21 +27,25 @@
 
         <!-- Other fields for appointment details -->
 
-        <Button
+        <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/btnSelectDate"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:background="@drawable/login_sign_up_btn"
+            android:padding="10dp"
             android:text="Select Date" />
     </LinearLayout>
 
     <!-- Submit Button -->
-    <Button
+    <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/btnBookAppointment"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Book Appointment"
         android:layout_below="@id/appointmentDetailsLayout"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="24dp" />
+        android:layout_marginTop="24dp"
+        android:background="@drawable/login_sign_up_btn"
+        android:padding="10dp"
+        android:text="Book Appointment" />
 
 </RelativeLayout>

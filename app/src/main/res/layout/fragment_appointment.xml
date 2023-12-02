@@ -12,12 +12,14 @@
         android:padding="8dp" />
 
     <!-- Button to Create New Appointment -->
-    <Button
+    <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/btnNewAppointment"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal"
-        android:text="Create New Appointment"
-        android:layout_margin="16dp" />
+        android:layout_margin="16dp"
+        android:background="@drawable/login_sign_up_btn"
+        android:padding="10dp"
+        android:text="Create New Appointment" />
 
 </LinearLayout>

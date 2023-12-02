@@ -4,13 +4,16 @@ import android.app.DatePickerDialog;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
+import androidx.navigation.Navigation;
 
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.EditText;
+import android.widget.Toast;
 
 import com.example.glowhub.R;
 
@@ -92,10 +95,26 @@ public class AppointmentBooking extends Fragment {
             public void onClick(View v) {
                 // Retrieve input data and book the appointment
                 String appointmentTitle = etAppointmentTitle.getText().toString();
-                // Get other appointment details
+                String appointmentDate = etSelectedDate.getText().toString();
 
-                // Validate data and perform booking logic
-                // Example: Send appointment details to a database or perform necessary actions
+                Appointment newAppointment = new Appointment();
+                newAppointment.setTitle(appointmentTitle);
+                newAppointment.setDateTime(appointmentDate);
+                // Set other details for the appointment
+
+                // Save the appointment to the database
+                AppointmentDatabaseHelper dbHelper = new AppointmentDatabaseHelper(getActivity());
+                long appointmentId = dbHelper.addAppointment(newAppointment);
+
+                if (appointmentId != -1) {
+                    // Appointment saved successfully
+                    Toast.makeText(getActivity(), "Appointment created!", Toast.LENGTH_SHORT).show();
+
+                    Navigation.findNavController(requireView()).navigate(R.id.nav_appointments);
+                } else {
+                    // Failed to create appointment
+                    Toast.makeText(getActivity(), "Failed to create appointment. Please try again.", Toast.LENGTH_SHORT).show();
+                }
             }
         });
 

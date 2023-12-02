@@ -4,7 +4,7 @@ public class Appointment {
     private String title;
     private String dateTime;
     // Add more fields as needed
-
+    public Appointment(){};
     public Appointment(String title, String dateTime /* add more fields */) {
         this.title = title;
         this.dateTime = dateTime;
