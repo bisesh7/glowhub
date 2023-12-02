@@ -14,6 +14,8 @@ import androidx.lifecycle.LiveData;
 import androidx.lifecycle.ViewModelProvider;
 
 import com.example.glowhub.R;
+import com.example.glowhub.ui.rewards.RewardModel;
+import com.example.glowhub.ui.rewards.RewardViewModel;
 
 import java.util.List;
 
@@ -22,6 +24,8 @@ public class AddEditServiceFragment extends Fragment {
     private EditText editTextServiceName;
     private EditText editTextServicePrice;
     private ServiceViewModel serviceViewModel;
+
+    private RewardViewModel rewardViewModel;
 
     public static AddEditServiceFragment newInstanceForEdit(ServiceModel service) {
         AddEditServiceFragment fragment = new AddEditServiceFragment();
@@ -87,6 +91,8 @@ public class AddEditServiceFragment extends Fragment {
         super.onViewCreated(view, savedInstanceState);
 
         serviceViewModel = new ViewModelProvider(this).get(ServiceViewModel.class);
+        rewardViewModel = new ViewModelProvider(this).get(RewardViewModel.class);
+
     }
 
     private void saveService() {
@@ -98,6 +104,8 @@ public class AddEditServiceFragment extends Fragment {
             if (servicePrice > 0) {
                 ServiceModel service = new ServiceModel(serviceName, servicePrice);
                 serviceViewModel.insert(service);
+                RewardModel reward = new RewardModel(serviceName, servicePrice*1000);
+                rewardViewModel.insert(reward);
 
                 // Navigate back to ServicesListFragment after saving
                 FragmentManager fragmentManager = requireActivity().getSupportFragmentManager();

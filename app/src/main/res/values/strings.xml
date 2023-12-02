@@ -13,6 +13,9 @@
     <string name="menu_rewards">Rewards and Coupons</string>
     <string name="menu_logout">Logout</string>
     <string name="add_service">Add Service</string>
+    <string name="add_reward">Add Reward</string>
     <string name="edit_service">Edit</string>
     <string name="delete_service">Delete</string>
+    <string name="edit_reward">Edit Reward</string>
+    <string name="delete_reward">Delete Reward</string>
 </resources>

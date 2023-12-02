@@ -55,7 +55,12 @@ public class MainActivity extends AppCompatActivity {
                 navController.navigate(R.id.nav_services);
                 binding.drawerLayout.closeDrawers();
                 return true;
+            }else if(id == R.id.nav_rewards) {
+                navController.navigate(R.id.nav_rewards);
+                binding.drawerLayout.closeDrawers();
+                return true;
             }
+            else {}
             // Handle other menu items here
 
             return true;
