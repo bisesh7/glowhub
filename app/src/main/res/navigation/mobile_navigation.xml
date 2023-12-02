@@ -13,9 +13,9 @@
 
     <fragment
         android:id="@+id/nav_services"
-        android:name="com.example.glowhub.ui.services.ServicesFragment"
+        android:name="com.example.glowhub.ui.services.ServicesListFragment"
         android:label="@string/menu_services"
-        tools:layout="@layout/fragment_services" />
+        tools:layout="@layout/fragment_services_list" />
 
     <fragment
         android:id="@+id/nav_appointments"

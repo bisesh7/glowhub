@@ -12,4 +12,7 @@
     <string name="menu_appointments">Appointments</string>
     <string name="menu_rewards">Rewards and Coupons</string>
     <string name="menu_logout">Logout</string>
+    <string name="add_service">Add Service</string>
+    <string name="edit_service">Edit</string>
+    <string name="delete_service">Delete</string>
 </resources>
