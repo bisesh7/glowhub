@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="16dp"
+    android:layout_marginTop="56dp">
+
+    <EditText
+        android:id="@+id/edit_text_service_name"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Service Name" />
+
+    <EditText
+        android:id="@+id/edit_text_service_price"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:inputType="numberDecimal"
+        android:hint="Service Price" />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/button_save_service"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/login_sign_up_btn"
+        android:text="Save" />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/button_service_list"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/login_sign_up_btn"
+        android:layout_marginTop="20dp"
+        android:text="Service List" />
+
+</LinearLayout>

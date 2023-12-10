@@ -13,9 +13,43 @@
 
     <fragment
         android:id="@+id/nav_services"
-        android:name="com.example.glowhub.ui.gallery.GalleryFragment"
+        android:name="com.example.glowhub.ui.services.ServicesListFragment"
         android:label="@string/menu_services"
-        tools:layout="@layout/fragment_gallery" />
+        tools:layout="@layout/fragment_services_list" />
+
+
+    <fragment
+        android:id="@+id/nav_create_edit_services"
+        android:name="com.example.glowhub.ui.services.AddEditServiceFragment"
+        android:label="@string/menu_add_edit_services"
+        tools:layout="@layout/fragment_add_edit_service" >
+        <argument
+            android:name="serviceName"
+            app:argType="string" />
+        <argument
+            android:name="price"
+            app:argType="string" />
+    </fragment>
+
+
+    <fragment
+        android:id="@+id/nav_rewards"
+        android:name="com.example.glowhub.ui.rewards.RewardsListFragment"
+        android:label="@string/menu_rewards"
+        tools:layout="@layout/fragment_rewards" />
+
+    <fragment
+        android:id="@+id/nav_create_edit_rewards"
+        android:name="com.example.glowhub.ui.rewards.AddEditRewardFragment"
+        android:label="@string/menu_add_edit_rewards"
+        tools:layout="@layout/fragment_add_edit_reward" />
+
+    <fragment
+        android:id="@+id/nav_logout"
+        android:name="com.example.glowhub.ui.logout.LogoutFragment"
+        android:label="@string/menu_logout"
+        tools:layout="@layout/fragment_logout" />
+
 
     <fragment
         android:id="@+id/nav_login"
