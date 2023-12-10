@@ -19,8 +19,8 @@ public class RewardsAdapter extends RecyclerView.Adapter<RewardsAdapter.RewardVi
     private OnItemClickListener itemClickListener;
 
     public interface OnItemClickListener {
-        void onItemClick(RewardModel reward);
-        void onEditClick(RewardModel reward);
+        void onItemClick(View v, RewardModel reward);
+        void onEditClick(View v, RewardModel reward);
         void onDeleteClick(RewardModel reward);
     }
 
@@ -49,13 +49,13 @@ public class RewardsAdapter extends RecyclerView.Adapter<RewardsAdapter.RewardVi
         holder.textViewRewardPrice.setText(String.valueOf(currentReward.getRewardPoint()));
         holder.itemView.setOnClickListener(view -> {
             if (itemClickListener != null) {
-                itemClickListener.onItemClick(currentReward);
+                itemClickListener.onItemClick(view, currentReward);
             }
         });
         // Handle edit button click
         holder.buttonEditReward.setOnClickListener(v -> {
             if (itemClickListener != null) {
-                itemClickListener.onEditClick(currentReward);
+                itemClickListener.onEditClick(v, currentReward);
             }
         });
 

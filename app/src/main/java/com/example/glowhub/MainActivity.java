@@ -49,23 +49,24 @@ public class MainActivity extends AppCompatActivity {
         NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment_content_main);
         NavigationUI.setupActionBarWithNavController(this, navController, mAppBarConfiguration);
         NavigationUI.setupWithNavController(navigationView, navController);
-        navigationView.setNavigationItemSelectedListener(item -> {
-            int id = item.getItemId();
-            if (id == R.id.nav_services) {
-                // Navigate to ServicesListFragment when "Services" is clicked
-                navController.navigate(R.id.nav_services);
-                binding.drawerLayout.closeDrawers();
-                return true;
-            }else if(id == R.id.nav_rewards) {
-                navController.navigate(R.id.nav_rewards);
-                binding.drawerLayout.closeDrawers();
-                return true;
-            }
-            else {}
-            // Handle other menu items here
 
-            return true;
-        });
+//        navigationView.setNavigationItemSelectedListener(item -> {
+//            int id = item.getItemId();
+//            if (id == R.id.nav_services) {
+//                // Navigate to ServicesListFragment when "Services" is clicked
+//                navController.navigate(R.id.nav_services);
+//                binding.drawerLayout.closeDrawers();
+//                return true;
+//            }else if(id == R.id.nav_rewards) {
+//                navController.navigate(R.id.nav_rewards);
+//                binding.drawerLayout.closeDrawers();
+//                return true;
+//            }
+//            else {}
+//            // Handle other menu items here
+//
+//            return true;
+//        });
     }
 
     @Override

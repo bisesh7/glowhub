@@ -19,16 +19,19 @@
         android:inputType="numberDecimal"
         android:hint="Points" />
 
-    <Button
+    <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/button_save_reward"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:background="@drawable/login_sign_up_btn"
         android:text="Save" />
 
-    <Button
+    <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/button_reward_list"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:background="@drawable/login_sign_up_btn"
         android:text="Reward List" />
 
 </LinearLayout>

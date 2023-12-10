@@ -11,6 +11,7 @@ import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.lifecycle.ViewModelProvider;
+import androidx.navigation.Navigation;
 
 import com.example.glowhub.R;
 
@@ -19,6 +20,8 @@ public class AddEditRewardFragment extends Fragment {
     private EditText editTextRewardName;
     private EditText editTextRewardPrice;
     private RewardViewModel rewardViewModel;
+
+    private Boolean update = Boolean.FALSE;
 
     public static AddEditRewardFragment newInstanceForEdit(RewardModel reward) {
         AddEditRewardFragment fragment = new AddEditRewardFragment();
@@ -36,15 +39,15 @@ public class AddEditRewardFragment extends Fragment {
         editTextRewardPrice = rootView.findViewById(R.id.edit_text_reward_point);
         Button buttonSaveReward = rootView.findViewById(R.id.button_save_reward);
         Button buttonRewardList = rootView.findViewById(R.id.button_reward_list);
-        RewardModel reward;
-        // Retrieve RewardModel from arguments and pre-fill the EditText fields
-        if(getArguments() != null) {
-            reward = (RewardModel) getArguments().getSerializable("SERVICE");
+        RewardModel reward = new RewardModel("", 0);
+        Bundle args = getArguments();
+        if(args.getString("reward") != null) {
+            reward.setRewardName(args.getString("reward"));
+            reward.setRewardPoint(Double.parseDouble(args.getString("point")));
+            update=Boolean.TRUE;
         }
-        else {
-            reward = null;
-        }
-        if (reward != null) {
+
+        if (!reward.getRewardName().equals("")) {
             editTextRewardName.setText(reward.getRewardName());
             editTextRewardPrice.setText(String.valueOf(reward.getRewardPoint()));
             buttonSaveReward.setText("Update Reward");
@@ -53,13 +56,7 @@ public class AddEditRewardFragment extends Fragment {
         buttonSaveReward.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if (reward != null) {
-                    // Editing existing reward - Implement the logic to update the reward
-                    updateReward(reward);
-                } else {
-                    // Adding new reward - Implement the logic to save the new reward
-                    saveReward();
-                }
+                saveReward(v, reward);
             }
         });
 
@@ -86,24 +83,21 @@ public class AddEditRewardFragment extends Fragment {
         rewardViewModel = new ViewModelProvider(this).get(RewardViewModel.class);
     }
 
-    private void saveReward() {
+    private void saveReward(View v, RewardModel reward) {
         String rewardName = editTextRewardName.getText().toString().trim();
         String rewardPriceString = editTextRewardPrice.getText().toString().trim();
 
         if (!rewardName.isEmpty() && !rewardPriceString.isEmpty()) {
             double rewardPrice = Double.parseDouble(rewardPriceString);
             if (rewardPrice > 0) {
-                RewardModel reward = new RewardModel(rewardName, rewardPrice);
-                rewardViewModel.insert(reward);
+                if(update) {
+                    rewardViewModel.update(reward);
+                }
+                else {
+                    rewardViewModel.insert(reward);
+                }
 
-                // Navigate back to RewardsListFragment after saving
-                FragmentManager fragmentManager = requireActivity().getSupportFragmentManager();
-                fragmentManager.popBackStackImmediate(); // Remove this fragment from the back stack
-
-                RewardsListFragment rewardsListFragment = new RewardsListFragment();
-                fragmentManager.beginTransaction()
-                        .replace(R.id.fragment_container, rewardsListFragment)
-                        .commit();
+                Navigation.findNavController(v).navigate(R.id.nav_rewards);
             } else {
                 // Handle negative or zero reward price
                 editTextRewardPrice.setError("Enter a valid price");

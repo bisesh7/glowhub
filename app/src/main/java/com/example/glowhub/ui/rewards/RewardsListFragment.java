@@ -10,6 +10,7 @@ import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentTransaction;
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
+import androidx.navigation.Navigation;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -39,60 +40,27 @@ public class RewardsListFragment extends Fragment {
         fabAddReward.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                try {
-                    rootView.setVisibility(View.GONE);
-                    // Replace RewardsListFragment with AddEditRewardFragment
-                    Fragment addEditFragment = new AddEditRewardFragment();
-                    FragmentTransaction transaction = requireActivity().getSupportFragmentManager().beginTransaction();
-                    transaction.replace(R.id.fragment_container, addEditFragment);
-                    transaction.addToBackStack(null); // Optional: Add transaction to back stack
-                    transaction.commit();
-                } catch (Exception e) {
-                    // Log the exception or show a message to indicate an error occurred
-                    e.printStackTrace();
-                }
+                Navigation.findNavController(v).navigate(R.id.nav_create_edit_rewards);
             }
         });
 
         rewardsAdapter.setOnItemClickListener(new RewardsAdapter.OnItemClickListener() {
             @Override
-            public void onItemClick(RewardModel reward) {
-                try {
-//                rootView.setVisibility(View.GONE);
-                // Handle item click - navigate to AddEditRewardFragment for editing
-//                Fragment addEditFragment = AddEditRewardFragment.newInstanceForEdit(reward);
-                Fragment addEditFragment = new AddEditRewardFragment();
-                FragmentTransaction transaction = requireActivity().getSupportFragmentManager().beginTransaction();
-                transaction.replace(R.id.fragment_container, addEditFragment);
-                transaction.addToBackStack(null); // Optional: Add transaction to back stack
-                transaction.commit();
-                } catch (Exception e) {
-                    // Log the exception or show a message to indicate an error occurred
-                    e.printStackTrace();
-                }
+            public void onItemClick(View v, RewardModel reward) {
+                Bundle bundle = new Bundle();
+                bundle.putString("reward", reward.getRewardName());
+                bundle.putString("price", reward.getRewardPoint()+"");
+
+                Navigation.findNavController(v).navigate(R.id.nav_create_edit_services, bundle);
             }
 
             @Override
-            public void onEditClick(RewardModel reward) {
-//                Fragment addEditFragment = AddEditRewardFragment.newInstanceForEdit(reward);
-//                getChildFragmentManager()
-//                        .beginTransaction()
-//                        .replace(R.id.fragment_container, addEditFragment)
-//                        .addToBackStack(null)
-//                        .commit();
-                try {
-                    rootView.setVisibility(View.GONE);
-                    // Handle item click - navigate to AddEditRewardFragment for editing
-                    Fragment addEditFragment = AddEditRewardFragment.newInstanceForEdit(reward);
-//                    Fragment addEditFragment = new AddEditRewardFragment();
-                    FragmentTransaction transaction = requireActivity().getSupportFragmentManager().beginTransaction();
-                    transaction.replace(R.id.fragment_container, addEditFragment);
-                    transaction.addToBackStack(null); // Optional: Add transaction to back stack
-                    transaction.commit();
-                } catch (Exception e) {
-                    // Log the exception or show a message to indicate an error occurred
-                    e.printStackTrace();
-                }
+            public void onEditClick(View v, RewardModel reward) {
+                Bundle bundle = new Bundle();
+                bundle.putString("reward", reward.getRewardName());
+                bundle.putString("price", reward.getRewardPoint()+"");
+
+                Navigation.findNavController(v).navigate(R.id.nav_create_edit_services, bundle);
             }
 
             @Override

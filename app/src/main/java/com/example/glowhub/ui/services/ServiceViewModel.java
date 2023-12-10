@@ -1,5 +1,7 @@
 package com.example.glowhub.ui.services;
 import android.app.Application;
+import android.util.Log;
+
 import androidx.lifecycle.AndroidViewModel;
 import androidx.lifecycle.LiveData;
 import java.util.List;
@@ -24,7 +26,9 @@ public class ServiceViewModel extends AndroidViewModel {
     }
 
     public void update(ServiceModel service) {
+        Log.d("UpdateService", "Updating service: " + service.toString());
         serviceRepository.updateService(service);
+        Log.d("UpdateService", "Service updated successfully");
     }
 
     public void delete(ServiceModel service) {

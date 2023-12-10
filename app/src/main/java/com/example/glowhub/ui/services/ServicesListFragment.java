@@ -61,7 +61,12 @@ public class ServicesListFragment extends Fragment {
         servicesAdapter.setOnItemClickListener(new ServicesAdapter.OnItemClickListener() {
             @Override
             public void onItemClick(ServiceModel service, View v) {
-                Navigation.findNavController(v).navigate(R.id.nav_create_edit_services);
+                Bundle bundle = new Bundle();
+//                bundle.putSerializable("SERVICE", service);
+                bundle.putString("service_name", service.getServiceName());
+                bundle.putString("price", service.getServicePrice()+"");
+
+                Navigation.findNavController(v).navigate(R.id.nav_create_edit_services, bundle);
             }
 
             @Override
@@ -85,7 +90,12 @@ public class ServicesListFragment extends Fragment {
 //                    // Log the exception or show a message to indicate an error occurred
 //                    e.printStackTrace();
 //                }
-                Navigation.findNavController(v).navigate(R.id.nav_create_edit_services);
+                // Prepare the data to pass
+                Bundle bundle = new Bundle();
+//                bundle.putSerializable("SERVICE", service);
+                bundle.putString("service_name", service.getServiceName());
+                bundle.putString("price", service.getServicePrice()+"");// Replace "key" with your key and "value" with your data
+                Navigation.findNavController(v).navigate(R.id.nav_create_edit_services, bundle);
             }
 
             @Override

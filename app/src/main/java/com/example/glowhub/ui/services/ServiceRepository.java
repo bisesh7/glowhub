@@ -25,6 +25,8 @@ public class ServiceRepository {
     }
 
     public void updateService(ServiceModel service) {
+        System.out.println("*******service_name*"+service.getServiceName());
+        System.out.println("*******service_price*"+service.getServicePrice());
         ServiceDatabase.databaseWriteExecutor.execute(() -> {
             serviceDao.updateService(service);
         });

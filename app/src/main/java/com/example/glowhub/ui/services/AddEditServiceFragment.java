@@ -28,6 +28,8 @@ public class AddEditServiceFragment extends Fragment {
 
     private RewardViewModel rewardViewModel;
 
+    private Boolean update = Boolean.FALSE;
+
     public static AddEditServiceFragment newInstanceForEdit(ServiceModel service) {
         AddEditServiceFragment fragment = new AddEditServiceFragment();
         Bundle args = new Bundle();
@@ -44,15 +46,18 @@ public class AddEditServiceFragment extends Fragment {
         editTextServicePrice = rootView.findViewById(R.id.edit_text_service_price);
         Button buttonSaveService = rootView.findViewById(R.id.button_save_service);
         Button buttonServiceList = rootView.findViewById(R.id.button_service_list);
-        ServiceModel service;
+        final ServiceModel service = new ServiceModel("", 0);
         // Retrieve ServiceModel from arguments and pre-fill the EditText fields
-        if(getArguments() != null) {
-            service = (ServiceModel) getArguments().getSerializable("SERVICE");
+        Bundle args = getArguments();
+        System.out.println("**************************args"+args);
+        if(args.getString("service_name") != null) {
+            service.setServiceName(args.getString("service_name"));
+            service.setServicePrice(Double.parseDouble(args.getString("price")));
+            update=Boolean.TRUE;
+            System.out.println("**************************service"+ service.getServiceName());
         }
-        else {
-            service = null;
-        }
-        if (service != null) {
+
+        if (!service.getServiceName().equals("")) {
             editTextServiceName.setText(service.getServiceName());
             editTextServicePrice.setText(String.valueOf(service.getServicePrice()));
             buttonSaveService.setText("Update Service");
@@ -61,13 +66,7 @@ public class AddEditServiceFragment extends Fragment {
         buttonSaveService.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if (service != null) {
-                    // Editing existing service - Implement the logic to update the service
-                    updateService(service);
-                } else {
-                    // Adding new service - Implement the logic to save the new service
-                    saveService();
-                }
+                    saveService(v, service);
             }
         });
 
@@ -97,41 +96,41 @@ public class AddEditServiceFragment extends Fragment {
 
     }
 
-    private void saveService() {
-        String serviceName = editTextServiceName.getText().toString().trim();
-        String servicePriceString = editTextServicePrice.getText().toString().trim();
-
-        if (!serviceName.isEmpty() && !servicePriceString.isEmpty()) {
-            double servicePrice = Double.parseDouble(servicePriceString);
-            if (servicePrice > 0) {
-                ServiceModel service = new ServiceModel(serviceName, servicePrice);
-                serviceViewModel.insert(service);
-                RewardModel reward = new RewardModel(serviceName, servicePrice*1000);
-                rewardViewModel.insert(reward);
-
-                // Navigate back to ServicesListFragment after saving
-                FragmentManager fragmentManager = requireActivity().getSupportFragmentManager();
-                fragmentManager.popBackStackImmediate(); // Remove this fragment from the back stack
-
-                ServicesListFragment servicesListFragment = new ServicesListFragment();
-                fragmentManager.beginTransaction()
-                        .replace(R.id.fragment_container, servicesListFragment)
-                        .commit();
-            } else {
-                // Handle negative or zero service price
-                editTextServicePrice.setError("Enter a valid price");
-            }
-        } else {
-            // Handle empty service name or price
-            if (serviceName.isEmpty()) {
-                editTextServiceName.setError("Service name is required");
-            }
-            if (servicePriceString.isEmpty()) {
-                editTextServicePrice.setError("Service price is required");
-            }
-        }
-    }
-    private void updateService(ServiceModel service) {
+//    private void saveService() {
+//        String serviceName = editTextServiceName.getText().toString().trim();
+//        String servicePriceString = editTextServicePrice.getText().toString().trim();
+//
+//        if (!serviceName.isEmpty() && !servicePriceString.isEmpty()) {
+//            double servicePrice = Double.parseDouble(servicePriceString);
+//            if (servicePrice > 0) {
+//                ServiceModel service = new ServiceModel(serviceName, servicePrice);
+//                serviceViewModel.insert(service);
+//                RewardModel reward = new RewardModel(serviceName, servicePrice*1000);
+//                rewardViewModel.insert(reward);
+//
+//                // Navigate back to ServicesListFragment after saving
+//                FragmentManager fragmentManager = requireActivity().getSupportFragmentManager();
+//                fragmentManager.popBackStackImmediate(); // Remove this fragment from the back stack
+//
+//                ServicesListFragment servicesListFragment = new ServicesListFragment();
+//                fragmentManager.beginTransaction()
+//                        .replace(R.id.fragment_container, servicesListFragment)
+//                        .commit();
+//            } else {
+//                // Handle negative or zero service price
+//                editTextServicePrice.setError("Enter a valid price");
+//            }
+//        } else {
+//            // Handle empty service name or price
+//            if (serviceName.isEmpty()) {
+//                editTextServiceName.setError("Service name is required");
+//            }
+//            if (servicePriceString.isEmpty()) {
+//                editTextServicePrice.setError("Service price is required");
+//            }
+//        }
+//    }
+    private void saveService(View v, ServiceModel service) {
         String serviceName = editTextServiceName.getText().toString().trim();
         String servicePriceString = editTextServicePrice.getText().toString().trim();
 
@@ -140,16 +139,15 @@ public class AddEditServiceFragment extends Fragment {
             if (servicePrice > 0) {
                 service.setServiceName(serviceName);
                 service.setServicePrice(servicePrice);
-                serviceViewModel.update(service);
+                if(update) {
+                    System.out.println("***********************update*" + service.getServiceName() + service.getServicePrice());
+                    serviceViewModel.update(service);
+                }
+                else {
+                    serviceViewModel.insert(service);
+                }
 
-                // Navigate back to ServicesListFragment after saving
-                FragmentManager fragmentManager = requireActivity().getSupportFragmentManager();
-                fragmentManager.popBackStackImmediate(); // Remove this fragment from the back stack
-
-                ServicesListFragment servicesListFragment = new ServicesListFragment();
-                fragmentManager.beginTransaction()
-                        .replace(R.id.fragment_container, servicesListFragment)
-                        .commit();
+                Navigation.findNavController(v).navigate(R.id.nav_services);
             } else {
                 // Handle negative or zero service price
                 editTextServicePrice.setError("Enter a valid price");
