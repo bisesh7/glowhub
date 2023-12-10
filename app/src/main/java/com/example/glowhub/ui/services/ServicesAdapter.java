@@ -7,6 +7,7 @@ import android.widget.AdapterView;
 import android.widget.ImageButton;
 import android.widget.TextView;
 import androidx.annotation.NonNull;
+import androidx.navigation.Navigation;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.glowhub.R;
@@ -20,8 +21,8 @@ public class ServicesAdapter extends RecyclerView.Adapter<ServicesAdapter.Servic
     private OnItemClickListener itemClickListener;
 
     public interface OnItemClickListener {
-        void onItemClick(ServiceModel service);
-        void onEditClick(ServiceModel service);
+        void onItemClick(ServiceModel service, View v);
+        void onEditClick(ServiceModel service, View v);
         void onDeleteClick(ServiceModel service);
     }
 
@@ -50,13 +51,13 @@ public class ServicesAdapter extends RecyclerView.Adapter<ServicesAdapter.Servic
         holder.textViewServicePrice.setText(String.valueOf(currentService.getServicePrice()));
         holder.itemView.setOnClickListener(view -> {
             if (itemClickListener != null) {
-                itemClickListener.onItemClick(currentService);
+                itemClickListener.onItemClick(currentService, view);
             }
         });
         // Handle edit button click
         holder.buttonEditService.setOnClickListener(v -> {
             if (itemClickListener != null) {
-                itemClickListener.onEditClick(currentService);
+                itemClickListener.onEditClick(currentService, v);
             }
         });
 

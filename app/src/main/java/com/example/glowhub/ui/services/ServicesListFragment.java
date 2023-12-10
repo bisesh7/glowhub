@@ -11,6 +11,7 @@ import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
+import androidx.navigation.Navigation;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -41,60 +42,50 @@ public class ServicesListFragment extends Fragment {
         fabAddService.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                try {
-                    rootView.setVisibility(View.GONE);
-                    // Replace ServicesListFragment with AddEditServiceFragment
-                    Fragment addEditFragment = new AddEditServiceFragment();
-                    FragmentTransaction transaction = requireActivity().getSupportFragmentManager().beginTransaction();
-                    transaction.replace(R.id.fragment_container, addEditFragment);
-                    transaction.addToBackStack(null); // Optional: Add transaction to back stack
-                    transaction.commit();
-                } catch (Exception e) {
-                    // Log the exception or show a message to indicate an error occurred
-                    e.printStackTrace();
-                }
+//                try {
+//                    rootView.setVisibility(View.GONE);
+//                    // Replace ServicesListFragment with AddEditServiceFragment
+//                    Fragment addEditFragment = new AddEditServiceFragment();
+//                    FragmentTransaction transaction = requireActivity().getSupportFragmentManager().beginTransaction();
+//                    transaction.replace(R.id.fragment_container, addEditFragment);
+//                    transaction.addToBackStack(null); // Optional: Add transaction to back stack
+//                    transaction.commit();
+//                } catch (Exception e) {
+//                    // Log the exception or show a message to indicate an error occurred
+//                    e.printStackTrace();
+//                }
+                Navigation.findNavController(v).navigate(R.id.nav_create_edit_services);
             }
         });
 
         servicesAdapter.setOnItemClickListener(new ServicesAdapter.OnItemClickListener() {
             @Override
-            public void onItemClick(ServiceModel service) {
-                try {
-//                rootView.setVisibility(View.GONE);
-                // Handle item click - navigate to AddEditServiceFragment for editing
-//                Fragment addEditFragment = AddEditServiceFragment.newInstanceForEdit(service);
-                Fragment addEditFragment = new AddEditServiceFragment();
-                FragmentTransaction transaction = requireActivity().getSupportFragmentManager().beginTransaction();
-                transaction.replace(R.id.fragment_container, addEditFragment);
-                transaction.addToBackStack(null); // Optional: Add transaction to back stack
-                transaction.commit();
-                } catch (Exception e) {
-                    // Log the exception or show a message to indicate an error occurred
-                    e.printStackTrace();
-                }
+            public void onItemClick(ServiceModel service, View v) {
+                Navigation.findNavController(v).navigate(R.id.nav_create_edit_services);
             }
 
             @Override
-            public void onEditClick(ServiceModel service) {
+            public void onEditClick(ServiceModel service, View v) {
 //                Fragment addEditFragment = AddEditServiceFragment.newInstanceForEdit(service);
 //                getChildFragmentManager()
 //                        .beginTransaction()
 //                        .replace(R.id.fragment_container, addEditFragment)
 //                        .addToBackStack(null)
 //                        .commit();
-                try {
-                    rootView.setVisibility(View.GONE);
-                    // Handle item click - navigate to AddEditServiceFragment for editing
-                    Fragment addEditFragment = AddEditServiceFragment.newInstanceForEdit(service);
-//                    Fragment addEditFragment = new AddEditServiceFragment();
-                    FragmentTransaction transaction = requireActivity().getSupportFragmentManager().beginTransaction();
-                    transaction.replace(R.id.fragment_container, addEditFragment);
-                    transaction.addToBackStack(null); // Optional: Add transaction to back stack
-                    transaction.commit();
-                } catch (Exception e) {
-                    // Log the exception or show a message to indicate an error occurred
-                    e.printStackTrace();
-                }
+//                try {
+//                    rootView.setVisibility(View.GONE);
+//                    // Handle item click - navigate to AddEditServiceFragment for editing
+//                    Fragment addEditFragment = AddEditServiceFragment.newInstanceForEdit(service);
+////                    Fragment addEditFragment = new AddEditServiceFragment();
+//                    FragmentTransaction transaction = requireActivity().getSupportFragmentManager().beginTransaction();
+//                    transaction.replace(R.id.fragment_container, addEditFragment);
+//                    transaction.addToBackStack(null); // Optional: Add transaction to back stack
+//                    transaction.commit();
+//                } catch (Exception e) {
+//                    // Log the exception or show a message to indicate an error occurred
+//                    e.printStackTrace();
+//                }
+                Navigation.findNavController(v).navigate(R.id.nav_create_edit_services);
             }
 
             @Override

@@ -12,6 +12,7 @@ import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.ViewModelProvider;
+import androidx.navigation.Navigation;
 
 import com.example.glowhub.R;
 import com.example.glowhub.ui.rewards.RewardModel;
@@ -73,13 +74,14 @@ public class AddEditServiceFragment extends Fragment {
         buttonServiceList.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                FragmentManager fragmentManager = requireActivity().getSupportFragmentManager();
-                fragmentManager.popBackStackImmediate(); // Remove this fragment from the back stack
-
-                ServicesListFragment servicesListFragment = new ServicesListFragment();
-                fragmentManager.beginTransaction()
-                        .replace(R.id.fragment_container, servicesListFragment)
-                        .commit();
+//                FragmentManager fragmentManager = requireActivity().getSupportFragmentManager();
+//                fragmentManager.popBackStackImmediate(); // Remove this fragment from the back stack
+//
+//                ServicesListFragment servicesListFragment = new ServicesListFragment();
+//                fragmentManager.beginTransaction()
+//                        .replace(R.id.fragment_container, servicesListFragment)
+//                        .commit();
+                Navigation.findNavController(v).navigate(R.id.nav_services);
             }
         });
 

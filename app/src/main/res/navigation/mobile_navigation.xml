@@ -20,9 +20,9 @@
 
     <fragment
         android:id="@+id/nav_create_edit_services"
-        android:name="com.example.glowhub.ui.services.ServicesListFragment"
-        android:label="@string/menu_services"
-        tools:layout="@layout/fragment_services_list" />
+        android:name="com.example.glowhub.ui.services.AddEditServiceFragment"
+        android:label="@string/menu_add_edit_services"
+        tools:layout="@layout/fragment_add_edit_service" />
 
 
     <fragment
@@ -33,9 +33,9 @@
 
     <fragment
         android:id="@+id/nav_create_edit_rewards"
-        android:name="com.example.glowhub.ui.rewards.RewardsListFragment"
-        android:label="@string/menu_rewards"
-        tools:layout="@layout/fragment_rewards" />
+        android:name="com.example.glowhub.ui.rewards.AddEditRewardFragment"
+        android:label="@string/menu_add_edit_rewards"
+        tools:layout="@layout/fragment_add_edit_reward" />
 
     <fragment
         android:id="@+id/nav_logout"

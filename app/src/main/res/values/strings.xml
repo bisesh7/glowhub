@@ -9,8 +9,10 @@
 
     <string name="menu_home">Home</string>
     <string name="menu_services">Services</string>
+    <string name="menu_add_edit_services">Add / Edit Services</string>
     <string name="menu_appointments">Appointments</string>
     <string name="menu_rewards">Rewards and Coupons</string>
+    <string name="menu_add_edit_rewards">Add / Edit Rewards</string>
     <string name="add_service">Add Service</string>
     <string name="add_reward">Add Reward</string>
     <string name="edit_service">Edit</string>
